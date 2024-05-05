@@ -17,33 +17,21 @@ endif
 export SRC_PATH
 
 ifndef NAME
+SYNTH_DIR = ./synths/$(NAME)
 GRAPH_DIR = ./graphs/$(NAME)
 else
+SYNTH_DIR = ./synths/$(NAME)
 GRAPH_DIR = ./graphs/$(NAME)
 endif
 export GRAPH_DIR
-
-build:
-	echo Building aiger library
-	cd aiger && ./configure.sh && make
 
 graph: 
 	mkdir $(GRAPH_DIR) && \
 	yosys -c graph_gen.tcl | tee $(GRAPH_DIR) graph_gen.log
 
-aig:
-	mkdir $(GRAPH_DIR) && \
-	yosys -c aig_gen.tcl | tee $(GRAPH_DIR)/aig_gen.log
-
-# generate dot from aiger using aigtodot utility
-	./aigtodot $(GRAPH_DIR)/$(MODULE_NAME).aig $(GRAPH_DIR)/$(MODULE_NAME).dot
-
-aig_auto:
-	yosys -c aig_gen.tcl | tee $(GRAPH_DIR)/aig_gen.log
-
-# generate dot from aiger using aigtodot utility
-	./aigtodot $(GRAPH_DIR)/$(MODULE_NAME).aig $(GRAPH_DIR)/$(MODULE_NAME).dot
-
+synth:
+	mkdir $(SYNTH_DIR) && \
+	yosys -c synth.tcl | tee $(SYNTH_DIR) synth.log
 
 clean_work:
 	@if [ -d WORK ]; then \
