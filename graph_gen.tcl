@@ -10,10 +10,10 @@ set GRAPH_NAME $::env(GRAPH_NAME)
 yosys proc
 yosys flatten
 yosys memory
+yosys opt
 yosys techmap
-yosys abc -fast
-yosys memory
+yosys synth
 yosys clean
 
 # output graphviz files to specified graph_dir
-yosys show -format dot -prefix $GRAPH_DIR/$GRAPH_NAME
+yosys show -format dot -prefix $GRAPH_DIR/${GRAPH_NAME}.dot
