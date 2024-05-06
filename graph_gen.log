@@ -1,0 +1,278 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.35+24 (git sha1 032fab1f5, clang 15.0.7 -fPIC -Os)
+
+1. Executing Liberty frontend: /opt/riscv/cad/lib/sky130_osu_sc_t12/12T_hs/lib/sky130_osu_sc_12T_hs_tt_1P20_25C.ccs.lib
+Imported 55 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: ./src/2to4decoder.sv
+Parsing SystemVerilog input from `./src/2to4decoder.sv' to AST representation.
+Generating RTLIL representation for module `\decoder'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: ./src/flop.sv
+Parsing SystemVerilog input from `./src/flop.sv' to AST representation.
+Generating RTLIL representation for module `\flop'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: ./src/flopenr.sv
+Parsing SystemVerilog input from `./src/flopenr.sv' to AST representation.
+Generating RTLIL representation for module `\flopenr'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: ./src/keypadFSM.sv
+Parsing SystemVerilog input from `./src/keypadFSM.sv' to AST representation.
+Generating RTLIL representation for module `\keypadFSM'.
+./src/keypadFSM.sv:30: Warning: Identifier `\rowEnable' is implicitly declared.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: ./src/lab3_top.sv
+Parsing SystemVerilog input from `./src/lab3_top.sv' to AST representation.
+Generating RTLIL representation for module `\top'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: ./src/mux2.sv
+Parsing SystemVerilog input from `./src/mux2.sv' to AST representation.
+Generating RTLIL representation for module `\mux2'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: ./src/outputController.sv
+Parsing SystemVerilog input from `./src/outputController.sv' to AST representation.
+Generating RTLIL representation for module `\outputController'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: ./src/outputSelector.sv
+Parsing SystemVerilog input from `./src/outputSelector.sv' to AST representation.
+Generating RTLIL representation for module `\outputSelector'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: ./src/rowColToHex.sv
+Parsing SystemVerilog input from `./src/rowColToHex.sv' to AST representation.
+Generating RTLIL representation for module `\rowColToHex'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: ./src/rowSelect.sv
+Parsing SystemVerilog input from `./src/rowSelect.sv' to AST representation.
+Generating RTLIL representation for module `\rowSelect'.
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: ./src/sevenSegmentController.sv
+Parsing SystemVerilog input from `./src/sevenSegmentController.sv' to AST representation.
+Generating RTLIL representation for module `\sevenSegmentController'.
+Successfully finished Verilog frontend.
+
+13. Executing HIERARCHY pass (managing design hierarchy).
+
+13.1. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \outputController
+Used module:         \sevenSegmentController
+Used module:         \mux2
+Used module:         \outputSelector
+Used module:             \flopenr
+Used module:             \flop
+Used module:     \keypadFSM
+Used module:         \rowColToHex
+Used module:     \decoder
+Used module:     \rowSelect
+Parameter 1 (\WIDTH) = 4
+
+13.2. Executing AST frontend in derive mode using pre-parsed AST for module `\flopenr'.
+Parameter 1 (\WIDTH) = 4
+Generating RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000100'.
+Parameter 1 (\WIDTH) = 4
+Found cached RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000100'.
+Parameter 1 (\delayCycles) = 1
+
+13.3. Executing AST frontend in derive mode using pre-parsed AST for module `\keypadFSM'.
+Parameter 1 (\delayCycles) = 1
+Generating RTLIL representation for module `$paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001'.
+./src/keypadFSM.sv:30: Warning: Identifier `\rowEnable' is implicitly declared.
+Parameter 1 (\WIDTH) = 8
+
+13.4. Executing AST frontend in derive mode using pre-parsed AST for module `\flop'.
+Parameter 1 (\WIDTH) = 8
+Generating RTLIL representation for module `$paramod\flop\WIDTH=s32'00000000000000000000000000001000'.
+Parameter 1 (\WIDTH) = 8
+Found cached RTLIL representation for module `$paramod\flop\WIDTH=s32'00000000000000000000000000001000'.
+Parameter 1 (\WIDTH) = 4
+
+13.5. Executing AST frontend in derive mode using pre-parsed AST for module `\mux2'.
+Parameter 1 (\WIDTH) = 4
+Generating RTLIL representation for module `$paramod\mux2\WIDTH=s32'00000000000000000000000000000100'.
+Parameter 1 (\WIDTH) = 1
+
+13.6. Executing AST frontend in derive mode using pre-parsed AST for module `\flopenr'.
+Parameter 1 (\WIDTH) = 1
+Generating RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000001'.
+Parameter 1 (\WIDTH) = 4
+Found cached RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000100'.
+Parameter 1 (\WIDTH) = 4
+Found cached RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000100'.
+Parameter 1 (\WIDTH) = 2
+
+13.7. Executing AST frontend in derive mode using pre-parsed AST for module `\flopenr'.
+Parameter 1 (\WIDTH) = 2
+Generating RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000010'.
+Parameter 1 (\WIDTH) = 16
+
+13.8. Executing AST frontend in derive mode using pre-parsed AST for module `\flop'.
+Parameter 1 (\WIDTH) = 16
+Generating RTLIL representation for module `$paramod\flop\WIDTH=s32'00000000000000000000000000010000'.
+Parameter 1 (\WIDTH) = 4
+Found cached RTLIL representation for module `$paramod\mux2\WIDTH=s32'00000000000000000000000000000100'.
+Parameter 1 (\WIDTH) = 1
+Found cached RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000001'.
+Parameter 1 (\WIDTH) = 19
+
+13.9. Executing AST frontend in derive mode using pre-parsed AST for module `\flop'.
+Parameter 1 (\WIDTH) = 19
+Generating RTLIL representation for module `$paramod\flop\WIDTH=s32'00000000000000000000000000010011'.
+
+13.10. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \outputController
+Used module:         \sevenSegmentController
+Used module:         $paramod\mux2\WIDTH=s32'00000000000000000000000000000100
+Used module:         \outputSelector
+Used module:             $paramod\flopenr\WIDTH=s32'00000000000000000000000000000001
+Used module:             $paramod\flop\WIDTH=s32'00000000000000000000000000010011
+Used module:     $paramod\flopenr\WIDTH=s32'00000000000000000000000000000100
+Used module:     $paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001
+Used module:         \rowColToHex
+Used module:         \flopenr
+Used module:     $paramod\flop\WIDTH=s32'00000000000000000000000000001000
+Used module:     \decoder
+Used module:     \rowSelect
+Used module:         $paramod\flopenr\WIDTH=s32'00000000000000000000000000000010
+Used module:         $paramod\flop\WIDTH=s32'00000000000000000000000000010000
+Parameter 1 (\WIDTH) = 1
+Found cached RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000001'.
+Parameter 1 (\WIDTH) = 4
+Found cached RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000100'.
+Parameter 1 (\WIDTH) = 4
+Found cached RTLIL representation for module `$paramod\flopenr\WIDTH=s32'00000000000000000000000000000100'.
+
+13.11. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \outputController
+Used module:         \sevenSegmentController
+Used module:         $paramod\mux2\WIDTH=s32'00000000000000000000000000000100
+Used module:         \outputSelector
+Used module:             $paramod\flopenr\WIDTH=s32'00000000000000000000000000000001
+Used module:             $paramod\flop\WIDTH=s32'00000000000000000000000000010011
+Used module:     $paramod\flopenr\WIDTH=s32'00000000000000000000000000000100
+Used module:     $paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001
+Used module:         \rowColToHex
+Used module:     $paramod\flop\WIDTH=s32'00000000000000000000000000001000
+Used module:     \decoder
+Used module:     \rowSelect
+Used module:         $paramod\flopenr\WIDTH=s32'00000000000000000000000000000010
+Used module:         $paramod\flop\WIDTH=s32'00000000000000000000000000010000
+
+13.12. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \outputController
+Used module:         \sevenSegmentController
+Used module:         $paramod\mux2\WIDTH=s32'00000000000000000000000000000100
+Used module:         \outputSelector
+Used module:             $paramod\flopenr\WIDTH=s32'00000000000000000000000000000001
+Used module:             $paramod\flop\WIDTH=s32'00000000000000000000000000010011
+Used module:     $paramod\flopenr\WIDTH=s32'00000000000000000000000000000100
+Used module:     $paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001
+Used module:         \rowColToHex
+Used module:     $paramod\flop\WIDTH=s32'00000000000000000000000000001000
+Used module:     \decoder
+Used module:     \rowSelect
+Used module:         $paramod\flopenr\WIDTH=s32'00000000000000000000000000000010
+Used module:         $paramod\flop\WIDTH=s32'00000000000000000000000000010000
+Removing unused module `\mux2'.
+Removing unused module `\keypadFSM'.
+Removing unused module `\flopenr'.
+Removing unused module `\flop'.
+Removing unused module `\sky130_osu_sc_12T_hs__xor2_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__xnor2_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__tnbufi_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__tnbufi_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__tielo'.
+Removing unused module `\sky130_osu_sc_12T_hs__tiehi'.
+Removing unused module `\sky130_osu_sc_12T_hs__tbufi_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__tbufi_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__or2_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__or2_8'.
+Removing unused module `\sky130_osu_sc_12T_hs__or2_4'.
+Removing unused module `\sky130_osu_sc_12T_hs__or2_2'.
+Removing unused module `\sky130_osu_sc_12T_hs__or2_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__oai22_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__oai21_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__nor2_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__nor2_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__nand2_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__nand2_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__mux2_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_8'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_6'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_4'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_3'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_2'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_10'.
+Removing unused module `\sky130_osu_sc_12T_hs__inv_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__dffsr_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__dffsr_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__dffs_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__dffs_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__dffr_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__dffr_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__dff_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__dff_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__buf_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__buf_8'.
+Removing unused module `\sky130_osu_sc_12T_hs__buf_6'.
+Removing unused module `\sky130_osu_sc_12T_hs__buf_4'.
+Removing unused module `\sky130_osu_sc_12T_hs__buf_2'.
+Removing unused module `\sky130_osu_sc_12T_hs__buf_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__aoi22_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__aoi21_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__ant'.
+Removing unused module `\sky130_osu_sc_12T_hs__and2_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__and2_8'.
+Removing unused module `\sky130_osu_sc_12T_hs__and2_6'.
+Removing unused module `\sky130_osu_sc_12T_hs__and2_4'.
+Removing unused module `\sky130_osu_sc_12T_hs__and2_2'.
+Removing unused module `\sky130_osu_sc_12T_hs__and2_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__addh_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__addh_1'.
+Removing unused module `\sky130_osu_sc_12T_hs__addf_l'.
+Removing unused module `\sky130_osu_sc_12T_hs__addf_1'.
+Removed 59 unused modules.
+Mapping positional arguments of cell top.syncFlop ($paramod\flop\WIDTH=s32'00000000000000000000000000001000).
+Mapping positional arguments of cell top.captureFlop ($paramod\flop\WIDTH=s32'00000000000000000000000000001000).
+Mapping positional arguments of cell top.rowLockMux ($paramod\mux2\WIDTH=s32'00000000000000000000000000000100).
+Mapping positional arguments of cell $paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001.rowColAssignment (rowColToHex).
+Mapping positional arguments of cell $paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001.delayFlop ($paramod\flopenr\WIDTH=s32'00000000000000000000000000000001).
+Mapping positional arguments of cell $paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001.colLockFlop ($paramod\flopenr\WIDTH=s32'00000000000000000000000000000100).
+Mapping positional arguments of cell $paramod\keypadFSM\delayCycles=s32'00000000000000000000000000000001.rowLockFlop ($paramod\flopenr\WIDTH=s32'00000000000000000000000000000100).
+Mapping positional arguments of cell rowSelect.counterFlop ($paramod\flop\WIDTH=s32'00000000000000000000000000010000).
+Mapping positional arguments of cell outputSelector.ioSelectFlop ($paramod\flopenr\WIDTH=s32'00000000000000000000000000000001).
+Mapping positional arguments of cell outputSelector.counterFlop ($paramod\flop\WIDTH=s32'00000000000000000000000000010011).
+Mapping positional arguments of cell outputController.outputSelectModule (outputSelector).

@@ -1,6 +1,5 @@
 set src_dir $::env(SRC_PATH)
 set MODULE_NAME $::env(MODULE_NAME)
-set GRAPH_DIR $::env(GRAPH_DIR)
 
 # check for files with the correct file extension
 if {$::env(HDL_LANG) == "verilog"} {

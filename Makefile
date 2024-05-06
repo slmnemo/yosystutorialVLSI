@@ -23,14 +23,15 @@ else
 SYNTH_DIR = ./synths/$(NAME)
 GRAPH_DIR = ./graphs/$(NAME)
 endif
+export SYNTH_DIR
 export GRAPH_DIR
 
 graph: 
-	mkdir $(GRAPH_DIR) && \
+	mkdir -p $(GRAPH_DIR) && \
 	yosys -c graph_gen.tcl | tee $(GRAPH_DIR) graph_gen.log
 
-synth:
-	mkdir $(SYNTH_DIR) && \
+synthesis:
+	mkdir -p $(SYNTH_DIR) && \
 	yosys -c synth.tcl | tee $(SYNTH_DIR) synth.log
 
 clean_work:
@@ -41,7 +42,3 @@ clean_work:
 
 clean_graph:
 	rm -rf graphs/*
-
-clear_aiger:
-	echo Removing aiger library
-	cd aiger & make clean
